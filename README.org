@@ -1,0 +1,79 @@
+#+title: squeak-theme
+#+author: M Cooper Healy
+#+language: en
+
+An Emacs color theme faithful to the [[https://squeak.org][Squeak/Smalltalk]] 6.0 IDE aesthetic.
+
+* About
+
+Squeak's Morphic UI is famous for its colorful pastel windows — each tool has its own tinted title bar and background. This theme brings that candy-colored warmth to Emacs.
+
+** Window Palette
+
+Squeak maps different tools to different colors. This theme does the same:
+
+| Squeak Window       | Color               | Emacs Mapping                            |
+|---------------------+---------------------+------------------------------------------|
+| 🟢 *Workspace*     | Green =#c3e6a1=     | mode-line, header-line, tabs, org blocks |
+| 🟠 *Transcript*    | Orange =#e6cfa1=    | compilation, magit blame, diff changed   |
+| 🩷 *Browser*       | Pink =#e8c5d0=      | dired headers, treemacs, file navigation |
+| 🔵 *Inspector*     | Blue =#c5d5e8=      | help, info, diff/hunk headers            |
+| 🔴 *Debugger*      | Salmon =#e6b7b7=    | errors, diff removed, debugging          |
+
+** Syntax Colors (Shout Highlighter)
+
+The syntax highlighting uses the classic colors from Squeak's [[http://wiki.squeak.org/squeak/3355][Shout]] syntax highlighter:
+
+| Element                          | Color  | Hex       |
+|----------------------------------+--------+-----------|
+| Default text / variables / types | Black  | =#000000= |
+| Keywords / constants / numbers   | Maroon | =#800000= |
+| Functions / methods / symbols    | Navy   | =#000080= |
+| Strings                          | Purple | =#800080= |
+| Comments                         | Teal   | =#008080= |
+| Errors                           | Red    | =#f44747= |
+
+* Installation
+
+** Manual
+
+Clone this repository and add to your Emacs configuration:
+
+#+begin_src emacs-lisp
+(add-to-list 'custom-theme-load-path "/path/to/squeak-theme")
+(load-theme 'squeak t)
+#+end_src
+
+** use-package (with straight.el or elpaca)
+
+#+begin_src emacs-lisp
+(use-package squeak-theme
+  :ensure t
+  :config
+  (load-theme 'squeak t))
+#+end_src
+
+** MELPA
+
+/Coming soon./
+
+* Supported Packages
+
+The theme includes faces for:
+
+- *Built-in:* font-lock, diff, ediff, dired, compilation, eshell, info, customize, tab-bar
+- *Version control:* magit, git-gutter, git-gutter-fringe, why-this, diff-hl
+- *Completion:* company, ivy, vertico, orderless
+- *Checks:* flycheck, flymake
+- *Navigation:* treemacs, which-key
+- *Editing:* org-mode, markdown-mode
+
+* Credits
+
+- *Squeak/Smalltalk 6.0* — original =SqueakTheme= class and Shout highlighter colors
+- *[[https://github.com/LinqLover][LinqLover]]* — [[https://github.com/LinqLover/vscode-squeak-theme][VS Code Squeak theme]], which served as a reference for the color mapping
+- *[[https://squeak.org][Squeak.org]]* — the Squeak Smalltalk community
+
+* License
+
+GPL-3.0-or-later — see [[file:LICENSE][LICENSE]].
