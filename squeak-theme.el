@@ -102,7 +102,11 @@
       (sq-gray-mid    "#999999")  ; borders
       (sq-gray        "#808080")  ; inactive / dim text
       (sq-gray-subtle "#f0f0f0")  ; subtle bg for hl-line
-      (sq-sidebar-hd  "#e8e8e8")) ; section headers
+      (sq-sidebar-hd  "#e8e8e8") ; section headers
+
+      ;; === Popup / balloon help ===
+      (sq-popup       "#ffffb8")  ; Squeak BalloonMorph pale yellow
+      (sq-popup-border "#d4d4a0")) ; muted olive border for popups
 
   (custom-theme-set-faces
    'squeak
@@ -123,7 +127,8 @@
    `(error                            ((,class (:foreground ,sq-error :weight bold))))
    `(warning                          ((,class (:foreground ,sq-maroon :weight bold))))
    `(success                          ((,class (:foreground ,sq-teal :weight bold))))
-   `(tooltip                          ((,class (:background "#ffff17" :foreground ,sq-fg)))) ; Squeak yellow balloon help
+   `(tooltip                          ((,class (:background ,sq-popup :foreground ,sq-fg
+                                                           :box (:line-width 1 :color ,sq-popup-border)))))
 
    ;; =====================================================================
    ;; Mode line — Workspace green (the active window's title bar)
@@ -381,12 +386,27 @@
    ;; =====================================================================
    `(completions-common-part          ((,class (:foreground ,sq-navy))))
    `(completions-first-difference     ((,class (:foreground ,sq-maroon :weight bold))))
-   `(company-tooltip                  ((,class (:background ,sq-sidebar-hd :foreground ,sq-fg))))
+   `(company-tooltip                  ((,class (:background ,sq-popup :foreground ,sq-fg))))
    `(company-tooltip-selection        ((,class (:background ,sq-selection :foreground ,sq-fg))))
    `(company-tooltip-common           ((,class (:foreground ,sq-navy :weight bold))))
    `(company-tooltip-annotation       ((,class (:foreground ,sq-gray))))
-   `(company-scrollbar-bg             ((,class (:background ,sq-gray-light))))
+   `(company-scrollbar-bg             ((,class (:background ,sq-popup))))
    `(company-scrollbar-fg             ((,class (:background ,sq-focus))))
+   `(corfu-default                    ((,class (:background ,sq-popup :foreground ,sq-fg))))
+   `(corfu-current                    ((,class (:background ,sq-selection :foreground ,sq-fg :weight bold))))
+   `(corfu-border                     ((,class (:background ,sq-popup-border))))
+
+   ;; =====================================================================
+   ;; Eldoc-box / popups — Squeak BalloonMorph pale yellow
+   ;; =====================================================================
+   `(eldoc-box-body                   ((,class (:background ,sq-popup :foreground ,sq-fg))))
+   `(eldoc-box-border                 ((,class (:background ,sq-popup-border))))
+   `(popup-face                       ((,class (:background ,sq-popup :foreground ,sq-fg))))
+   `(popup-tip-face                   ((,class (:background ,sq-popup :foreground ,sq-fg
+                                                            :box (:line-width 1 :color ,sq-popup-border)))))
+   `(popup-menu-face                  ((,class (:background ,sq-popup :foreground ,sq-fg))))
+   `(popup-menu-selection-face        ((,class (:background ,sq-selection :foreground ,sq-fg))))
+   `(child-frame-border               ((,class (:background ,sq-popup-border))))
 
    ;; =====================================================================
    ;; Tab bar — like Squeak's window tabs
