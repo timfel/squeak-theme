@@ -22,7 +22,7 @@ Squeak maps different tools to different colors. This theme does the same:
 
 ** Syntax Colors (Shout Highlighter)
 
-The syntax highlighting uses the classic colors from Squeak's [[http://wiki.squeak.org/squeak/3355][Shout]] syntax highlighter:
+The syntax highlighting uses the classic colors from Squeak's [[https://wiki.squeak.org/squeak/5700][Shout]] syntax highlighter:
 
 | Element                          | Color  | Hex       |
 |----------------------------------+--------+-----------|
